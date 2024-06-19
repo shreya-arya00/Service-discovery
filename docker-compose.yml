@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  eureka-server:
+    build: ./eureka-server  # Path to Dockerfile for Eureka Server
+    ports:
+      - "8762:8761"
+
+  eureka-client:
+    build: ./eureka-client  # Path to Dockerfile for Eureka Client
+    ports:
+      - "8082:8081"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
